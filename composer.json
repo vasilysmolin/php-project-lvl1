@@ -5,6 +5,9 @@
     "keywords": [
         "php"
     ],
+    "bin": [
+        "bin/brain-games"
+    ],
     "license": "MIT",
     "authors": [
         {

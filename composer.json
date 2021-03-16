@@ -15,8 +15,14 @@
             "email": "vasilysmoolin@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Brain\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.2.0"
+        "php": ">=7.2.0",
+        "wp-cli/php-cli-tools": "dev-master"
     }
 }

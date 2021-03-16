@@ -1,0 +1,19 @@
+{
+    "name": "hexlet/code",
+    "description": "hexlet",
+    "type": "library",
+    "keywords": [
+        "php"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vasily.smolin",
+            "email": "vasilysmoolin@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.0"
+    }
+}

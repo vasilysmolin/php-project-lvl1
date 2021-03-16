@@ -1,6 +1,6 @@
 {
     "name": "hexlet/code",
-    "description": "hexlet",
+    "description": "hexlet library",
     "type": "library",
     "keywords": [
         "php"

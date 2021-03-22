@@ -11,7 +11,7 @@ class Cli
 
     public function start()
     {
-        line('Welcome to the Brain Games!');
+        line('Welcome to the Brain Games! ');
         $this->userName = prompt('May I have your name?');
         line("Hello, %s!", $this->userName);
     }

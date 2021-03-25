@@ -10,8 +10,9 @@ use function cli\prompt;
 class Progression extends Engine
 {
     private $value;
-    private $progression = 0;
-    private $progressionStart = 0;
+    private $progressionStep = 1;
+    private const START = 0;
+    private const END = 10;
 
     public function start(): void
     {
@@ -20,7 +21,7 @@ class Progression extends Engine
         $this->question();
     }
 
-    public function wrongAnswer(int $value, int $answer): void
+    public function wrongAnswer($value, $answer): void
     {
         parent::wrongAnswer();
     }
@@ -33,9 +34,8 @@ class Progression extends Engine
     private function question(): void
     {
         parent::isWin();
-        $this->progressionStep = rand(0, 10);
+        $this->progressionStep = $this->progressionStep + rand(self::START, self::END);
         $array = $this->randArray();
-        var_dump($this->value);
 
         line("Question %s %s", implode(' ', $array));
         $answer = prompt('Your answer:');
@@ -51,13 +51,13 @@ class Progression extends Engine
     private function randArray(): array
     {
         $array = [];
-
-        for ($i = 0; $i < 10; $i++) {
-            $this->progression += $this->progressionStep;
-            $array[$i] = $this->progression;
+        $val = 0;
+        for ($i = self::START; $i < self::END; $i++) {
+            $val += $this->progressionStep;
+            $array[$i] = $val;
         }
 
-        $replacement = rand(0, 9);
+        $replacement = rand(self::START, self::END);
         $this->value = $array[$replacement];
         $array[$replacement] = '..';
 

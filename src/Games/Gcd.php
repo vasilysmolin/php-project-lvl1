@@ -18,7 +18,7 @@ class Gcd extends Engine
         $this->question();
     }
 
-    public function wrongAnswer(int $value, int $answer): void
+    public function wrongAnswer($value, $answer): void
     {
         parent::wrongAnswer();
     }
@@ -35,7 +35,6 @@ class Gcd extends Engine
         $numberFirst = $this->rand();
         $numberSecond = $this->rand();
         $this->gcd($numberFirst, $numberSecond);
-        var_dump($this->value);
 
         line("Question %s %s", $numberFirst, $numberSecond);
         $answer = prompt('Your answer:');

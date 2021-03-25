@@ -18,7 +18,7 @@ class Calc extends Engine
         $this->question();
     }
 
-    public function wrongAnswer(int $value, int $answer): void
+    public function wrongAnswer($value, $answer): void
     {
         parent::wrongAnswer();
     }
@@ -35,7 +35,6 @@ class Calc extends Engine
         $numberFirst = $this->rand();
         $numberSecond = $this->rand();
         $string = $this->stringExample($numberFirst, $numberSecond);
-        var_dump($this->value);
 
         line("Question %s", $string);
         $answer = prompt('Your answer:');

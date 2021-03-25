@@ -16,7 +16,7 @@ class Even extends Engine
         $this->question();
     }
 
-    public function wrongAnswer(int $value, int $answer): void
+    public function wrongAnswer($value, $answer): void
     {
         parent::wrongAnswer();
     }

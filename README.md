@@ -7,9 +7,11 @@
 #brain-even
 https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd
 
-
 #brain-calc
 https://asciinema.org/a/XbW2X9KG7kksW2POM5nR8ObIj
 
 #brain-gcd
 https://asciinema.org/a/gfArkBK62WZdocH7iRs0YhjLi
+
+#brain-progression
+https://asciinema.org/a/rMgNgvrAe0PfnYOv2yd1R4L5k

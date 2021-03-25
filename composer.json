@@ -9,7 +9,8 @@
         "bin/brain-games",
         "bin/brain-even",
         "bin/brain/calc",
-        "brain-gcd"
+        "brain-gcd",
+        "brain-progression"
     ],
     "license": "MIT",
     "authors": [

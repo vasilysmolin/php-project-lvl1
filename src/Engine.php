@@ -29,7 +29,6 @@ class Engine implements GameInterface
         line("%s is wrong answer ;(. Correct answer was %s .", $answer, $value);
         line("Let's try again, %s!", $this->userName);
         $this->amountAnswer = 0;
-        $this->start();
     }
 
     public function isWin(): void

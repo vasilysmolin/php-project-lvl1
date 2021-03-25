@@ -32,7 +32,7 @@ class Even extends Engine
         $number = $this->rand();
         $string = $this->oddOrEven($number);
 
-        line("Question %s", $number);
+        line("Question: %s", $number);
         $answer = mb_strtolower(prompt('Your answer:'));
         if ($string === $answer) {
             $this->amountAnswer++;

@@ -37,7 +37,7 @@ class Progression extends Engine
         $this->progressionStep = $this->progressionStep + rand(self::START, self::END);
         $array = $this->randArray();
 
-        line("Question %s %s", implode(' ', $array));
+        line("Question: %s %s", implode(' ', $array));
         $answer = prompt('Your answer:');
         if ($this->value == $answer) {
             $this->amountAnswer++;

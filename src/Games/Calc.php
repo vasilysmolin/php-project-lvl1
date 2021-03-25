@@ -36,7 +36,7 @@ class Calc extends Engine
         $numberSecond = $this->rand();
         $string = $this->stringExample($numberFirst, $numberSecond);
 
-        line("Question %s", $string);
+        line("Question: %s", $string);
         $answer = prompt('Your answer:');
         if ($this->value == $answer) {
             $this->amountAnswer++;

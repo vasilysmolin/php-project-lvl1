@@ -33,7 +33,7 @@ class Prime extends Engine
         parent::isWin();
         $number = $this->rand();
         $bool = $this->isPrime($number);
-        line("Question %s", $number);
+        line("Question: %s", $number);
 
         $answer = prompt('Your answer:');
 

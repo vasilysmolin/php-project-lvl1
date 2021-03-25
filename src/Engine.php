@@ -12,7 +12,7 @@ class Engine implements GameInterface
 
     protected const WIN = 3;
     protected const MIN_VALUE = 0;
-    protected const MAX_VALUE = 100;
+    protected const MAX_VALUE = 9;
     protected $amountAnswer = 0;
     protected $userName;
 

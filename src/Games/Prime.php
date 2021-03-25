@@ -42,7 +42,7 @@ class Prime extends Engine
         } elseif ($answer === "no") {
             $answerBool = $this->answerToBool($answer);
         } else {
-            parent::wrongAnswer($bool, $answer);
+            parent::wrongAnswer($answerBool, $answer);
         }
 
         if ($bool == $answerBool) {
@@ -50,7 +50,7 @@ class Prime extends Engine
             line('Correct!');
             $this->question();
         } else {
-            parent::wrongAnswer($bool, $answer);
+            parent::wrongAnswer($answerBool, $answer);
         }
     }
 
@@ -62,10 +62,20 @@ class Prime extends Engine
     private function isPrime(int $number): bool
     {
 
-        if (gmp_prob_prime($number) === 0) {
+        if ($number == 2) {
+            return true;
+        }
+        if ($number % 2 == 0) {
             return false;
         }
-
+        $i = 3;
+        $max_factor = (int)sqrt($number);
+        while ($i <= $max_factor) {
+            if ($number % $i == 0) {
+                return false;
+            }
+            $i += 2;
+        }
         return true;
     }
 

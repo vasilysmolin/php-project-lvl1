@@ -7,14 +7,14 @@ use Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-class Calc extends Engine
+class Gcd extends Engine
 {
     private $value;
 
     public function start(): void
     {
         parent::start();
-        line('What is the result of the expression?');
+        line('Find the greatest common divisor of given numbers.');
         $this->question();
     }
 
@@ -34,10 +34,10 @@ class Calc extends Engine
 
         $numberFirst = $this->rand();
         $numberSecond = $this->rand();
-        $string = $this->stringExample($numberFirst, $numberSecond);
+        $this->gcd($numberFirst, $numberSecond);
         var_dump($this->value);
 
-        line("Question %s", $string);
+        line("Question %s %s", $numberFirst, $numberSecond);
         $answer = prompt('Your answer:');
         if ($this->value == $answer) {
             $this->amountAnswer++;
@@ -53,24 +53,8 @@ class Calc extends Engine
         return rand(self::MIN_VALUE, self::MAX_VALUE);
     }
 
-    private function stringExample(int $numberFirst, int $numberSecond): string
+    private function gcd(int $numberFirst, int $numberSecond): void
     {
-        $array = array("+","-","*");
-        $operator = $array[array_rand($array, 1)];
-
-        switch ($operator) {
-            case "+":
-                $this->value = $numberFirst + $numberSecond;
-                break;
-            case "-":
-                $this->value = $numberFirst - $numberSecond;
-                break;
-            case "*":
-                $this->value = $numberFirst * $numberSecond;
-                break;
-            default:
-                return false;
-        }
-        return "$numberFirst $operator $numberSecond";
+        $this->value = gmp_strval(gmp_gcd($numberFirst, $numberSecond));
     }
 }

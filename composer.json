@@ -6,7 +6,8 @@
         "php"
     ],
     "bin": [
-        "bin/brain-games"
+        "bin/brain-games",
+        "bin/brain-even"
     ],
     "license": "MIT",
     "authors": [

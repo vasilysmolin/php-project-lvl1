@@ -7,6 +7,7 @@ use function cli\prompt;
 
 class Cli
 {
+
     public $userName;
 
     public function start()

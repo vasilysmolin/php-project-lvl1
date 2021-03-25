@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+use Brain\Games\Even;
+
+require_once __DIR__ . "/../vendor/autoload.php";
+
+$game = new Even();
+$game->start();

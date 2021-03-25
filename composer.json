@@ -10,7 +10,8 @@
         "bin/brain-even",
         "bin/brain/calc",
         "brain-gcd",
-        "brain-progression"
+        "brain-progression",
+        "brain-prime"
     ],
     "license": "MIT",
     "authors": [

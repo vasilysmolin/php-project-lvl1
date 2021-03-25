@@ -24,7 +24,7 @@ class Engine implements GameInterface
         line("Hello, %s!", $this->userName);
     }
 
-    public function wrongAnswer(int $value, int $answer): void
+    public function wrongAnswer($value, $answer): void
     {
         line("%s is wrong answer ;(. Correct answer was %s .", $answer, $value);
         line("Let's try again, %s!", $this->userName);

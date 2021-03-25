@@ -2,22 +2,28 @@
 
 namespace Brain\Games;
 
+use Brain\Engine;
+
 use function cli\line;
 use function cli\prompt;
 
-class Even
+class Even extends Engine
 {
-
-    private const WIN = 3;
-    private $amountAnswer = 0;
-
     public function start(): void
     {
-        line('Welcome to the Brain Games! ');
-        $this->userName = prompt('May I have your name?');
-        line("Hello, %s!", $this->userName);
+        parent::start();
         line('Answer "yes" if the number is even, otherwise answer "no".');
         $this->question();
+    }
+
+    public function wrongAnswer(int $value, int $answer): void
+    {
+        parent::wrongAnswer();
+    }
+
+    public function isWin(): void
+    {
+        parent::isWin();
     }
 
     private function question(): void
@@ -33,32 +39,17 @@ class Even
             line('Correct!');
             $this->question();
         } else {
-            line("%s is wrong answer ;(. Correct answer was %s .", $answer, $string);
-            line("Let's try again, %s!", $this->userName);
-            $this->amountAnswer = 0;
-            $this->start();
-        }
-    }
-
-    private function isWin(): void
-    {
-        if ($this->amountAnswer >= self::WIN) {
-            line('Congratulations, %s!', $this->userName);
-            exit();
+            $this->wrongAnswer();
         }
     }
 
     private function rand(): int
     {
-        return rand(0, 100);
+        return rand(self::MIN_VALUE, self::MAX_VALUE);
     }
 
     private function oddOrEven(int $number): string
     {
-        if ($number % 2 === 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+        return ($number % 2 === 0) ? "yes" : "no";
     }
 }

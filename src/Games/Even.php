@@ -39,7 +39,7 @@ class Even extends Engine
             line('Correct!');
             $this->question();
         } else {
-            parent::wrongAnswer($this->value, $answer);
+            parent::wrongAnswer($number, $answer);
         }
     }
 

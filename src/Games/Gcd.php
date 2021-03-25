@@ -52,8 +52,12 @@ class Gcd extends Engine
         return rand(self::MIN_VALUE, self::MAX_VALUE);
     }
 
-    private function gcd(int $numberFirst, int $numberSecond): void
+    private function gcd(int $n, int $m): void
     {
-        $this->value = gmp_gcd($numberFirst, $numberSecond);
+        if($m > 0) {
+            $this->gcd($m, $n % $m);
+        } else {
+            $this->value = abs($n);
+        }
     }
 }

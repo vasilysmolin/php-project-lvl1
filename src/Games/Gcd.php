@@ -36,7 +36,7 @@ class Gcd extends Engine
         $numberSecond = $this->rand();
         $this->gcd($numberFirst, $numberSecond);
 
-        line("Question: %s %s", $numberFirst, $numberSecond);
+        line("Question: %s %d", $numberFirst, $numberSecond);
         $answer = prompt('Your answer:');
         if ($this->value == $answer) {
             $this->amountAnswer++;

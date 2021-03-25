@@ -8,10 +8,10 @@
     "bin": [
         "bin/brain-games",
         "bin/brain-even",
-        "bin/brain/calc",
-        "brain-gcd",
-        "brain-progression",
-        "brain-prime"
+        "bin/brain-calc",
+        "bin/brain-gcd",
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "license": "MIT",
     "authors": [

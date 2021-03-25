@@ -54,7 +54,7 @@ class Gcd extends Engine
 
     private function gcd(int $n, int $m): void
     {
-        if($m > 0) {
+        if ($m > 0) {
             $this->gcd($m, $n % $m);
         } else {
             $this->value = abs($n);

@@ -52,7 +52,7 @@ class Progression extends Engine
     {
         $array = [];
         $val = 0;
-        for ($i = self::START; $i < self::END; $i++) {
+        for ($i = self::START; $i <= self::END; $i++) {
             $val += $this->progressionStep;
             $array[$i] = $val;
         }

@@ -1,9 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\Gcd;
+use function Brain\Games\Gcd\startGame;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$game = new Gcd();
-$game->start();
+startGame();

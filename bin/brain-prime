@@ -1,9 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\Prime;
+use function Brain\Games\Prime\startGame;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$game = new Prime();
-$game->start();
+startGame();

@@ -1,9 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\Progression;
+use function Brain\Games\Progression\startGame;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$game = new Progression();
-$game->start();
+startGame();

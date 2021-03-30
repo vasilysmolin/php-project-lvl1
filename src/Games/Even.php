@@ -1,55 +1,31 @@
 <?php
 
-namespace Brain\Games;
+declare(strict_types=1);
 
-use Brain\Engine;
+namespace Brain\Games\Even;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\start;
 
-class Even extends Engine
+use const Brain\Engine\MIN_VALUE;
+use const Brain\Engine\MAX_VALUE;
+
+const DESC = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function startGame(): void
 {
-    public function start(): void
-    {
-        parent::start();
-        line('Answer "yes" if the number is even, otherwise answer "no".');
-        $this->question();
-    }
+    $round = function (): array {
+        $question = rand(MIN_VALUE, MAX_VALUE);
+        $answer = isEven($question) ? 'yes' : 'no';
+        return [
+            'question' => $question,
+            'answer' => $answer
+        ];
+    };
 
-    public function wrongAnswer($value, $answer): void
-    {
-        parent::wrongAnswer();
-    }
+    start(DESC, $round);
+}
 
-    public function isWin(): void
-    {
-        parent::isWin();
-    }
-
-    private function question(): void
-    {
-        $this->isWin();
-        $number = $this->rand();
-        $string = $this->oddOrEven($number);
-
-        line("Question: %s", $number);
-        $answer = mb_strtolower(prompt('Your answer:'));
-        if ($string === $answer) {
-            $this->amountAnswer++;
-            line('Correct!');
-            $this->question();
-        } else {
-            parent::wrongAnswer($string, $answer);
-        }
-    }
-
-    private function rand(): int
-    {
-        return rand(self::MIN_VALUE, self::MAX_VALUE);
-    }
-
-    private function oddOrEven(int $number): string
-    {
-        return ($number % 2 === 0) ? "yes" : "no";
-    }
+function isEven(int $number): bool
+{
+    return $number % 2 == 0 ;
 }

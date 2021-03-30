@@ -1,23 +1,24 @@
 <?php
 
-//declare(strict_types=1);
+declare(strict_types=1);
 
 namespace Brain\Games\Calc;
 
 use function Brain\Engine\start;
 
+use const Brain\Engine\MIN_VALUE;
+use const Brain\Engine\MAX_VALUE;
+
 const DESC = 'What is the result of the expression?';
+const OPERATORS = ['+', '-', '*'];
 
 function startGame(): void
 {
-    $generateRound = function (): array {
+    $round = function (): array {
 
-        $operators = array('+', '-', '*');
-        $operator = $operators[array_rand($operators)];
-        $minNumber = 1;
-        $maxNumber = 100;
-        $numberOne = rand($minNumber, $maxNumber);
-        $numberTwo = rand($minNumber, $maxNumber);
+        $operator = OPERATORS[array_rand(OPERATORS)];
+        $numberOne = rand(MIN_VALUE, MAX_VALUE);
+        $numberTwo = rand(MIN_VALUE, MAX_VALUE);
         $question = "{$numberOne} {$operator} {$numberTwo}";
         $answer = calculate($operator, $numberOne, $numberTwo);
 
@@ -27,11 +28,10 @@ function startGame(): void
         ];
     };
 
-    start(DESC, $generateRound);
+    start(DESC, $round);
 }
 
-
-function calculate($operator, $numberOne, $numberTwo): int
+function calculate($operator, int $numberOne, int $numberTwo): int
 {
     switch ($operator) {
         case "+":
@@ -41,7 +41,6 @@ function calculate($operator, $numberOne, $numberTwo): int
         case "*":
             return $numberOne * $numberTwo;
         default:
-            throw new \Exception("Unknown operator value: $operator!");
+            throw new \Exception("Not found operator: $operator!");
     }
 }
-

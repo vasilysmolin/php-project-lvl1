@@ -1,63 +1,42 @@
 <?php
 
-namespace Brain\Games;
+declare(strict_types=1);
 
-use Brain\Engine;
+namespace Brain\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\start;
 
-class Gcd extends Engine
+use const Brain\Engine\MIN_VALUE;
+use const Brain\Engine\MAX_VALUE;
+
+const DESC = 'Find the greatest common divisor of given numbers.';
+
+function startGame(): void
 {
-    private $value;
+    $round = function (): array {
+        $randomNumberOne = rand(MIN_VALUE, MAX_VALUE);
+        $randomNumberTwo = rand(MIN_VALUE, MAX_VALUE);
+        var_dump($randomNumberOne);
+        var_dump($randomNumberTwo);
+        $question = "{$randomNumberOne} {$randomNumberTwo}";
+        $answer = gcd($randomNumberOne, $randomNumberTwo);
+        return [
+            'question' => $question,
+            'answer' => $answer
+        ];
+    };
 
-    public function start(): void
-    {
-        parent::start();
-        line('Find the greatest common divisor of given numbers.');
-        $this->question();
-    }
+    start(DESC, $round);
+}
 
-    public function wrongAnswer($value, $answer): void
-    {
-        parent::wrongAnswer();
-    }
-
-    public function isWin(): void
-    {
-        parent::isWin();
-    }
-
-    private function question(): void
-    {
-        parent::isWin();
-
-        $numberFirst = $this->rand();
-        $numberSecond = $this->rand();
-        $this->gcd($numberFirst, $numberSecond);
-
-        line("Question: %s %s", $numberFirst, $numberSecond);
-        $answer = prompt('Your answer:');
-        if ($this->value == $answer) {
-            $this->amountAnswer++;
-            line('Correct!');
-            $this->question();
+function gcd(int $n, int $m): int
+{
+    while ($n != $m) {
+        if ($n > $m) {
+            $n = $n - $m;
         } else {
-            parent::wrongAnswer($this->value, $answer);
+            $m = $m - $n;
         }
     }
-
-    private function rand(): int
-    {
-        return rand(self::MIN_VALUE, self::MAX_VALUE);
-    }
-
-    private function gcd(int $n, int $m): void
-    {
-        if ($m > 0) {
-            $this->gcd($m, $n % $m);
-        } else {
-            $this->value = abs($n);
-        }
-    }
+    return $n;
 }

@@ -5,7 +5,6 @@ namespace Brain\Engine;
 use function cli\line;
 use function cli\prompt;
 
-
 const ROUND_TO_WIN = 3;
 const MIN_VALUE = 0;
 const MAX_VALUE = 9;
@@ -18,14 +17,14 @@ function start(string $description, callable $generateRound): void
     line($description);
 
     for ($roundGame = 1; $roundGame <= ROUND_TO_WIN; $roundGame++) {
-        ['question' => $question, 'correctAnswer' => $correctAnswer] = $generateRound();
+        ['question' => $question, 'answer' => $answer] = $generateRound();
         line("Question: $question");
-        $answer = prompt('Your answer');
+        $yourAnswer = prompt('Your answer');
 
-        if ($answer === $correctAnswer) {
+        if ($yourAnswer == $answer) {
             line('Correct!');
         } else {
-            line("'%s!' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answer);
+            line("'%s!' is wrong answer ;(. Correct answer was '%s'.", $yourAnswer, $answer);
             line("Let's try again, $name");
             return;
         }

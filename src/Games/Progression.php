@@ -1,66 +1,43 @@
 <?php
 
-namespace Brain\Games;
+declare(strict_types=1);
 
-use Brain\Engine;
+namespace Brain\Games\Progression;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\start;
 
-class Progression extends Engine
+use const Brain\Engine\MIN_VALUE;
+use const Brain\Engine\MAX_VALUE;
+
+const DESC = 'What number is missing in the progression?';
+
+function startGame(): void
 {
-    private $value;
-    private $progressionStep = 1;
-    private const START = 0;
-    private const END = 10;
+    $round = function (): array {
+        $start = rand(MIN_VALUE, MAX_VALUE);
+        $progressionStep = rand(MIN_VALUE, MAX_VALUE);
+        $progressionLength = MAX_VALUE;
+        $minIndex = MIN_VALUE;
+        $hiddenIndex = rand($minIndex, $progressionLength - 1);
 
-    public function start(): void
-    {
-        parent::start();
-        line('Find the greatest common divisor of given numbers.');
-        $this->question();
-    }
-
-    public function wrongAnswer($value, $answer): void
-    {
-        parent::wrongAnswer();
-    }
-
-    public function isWin(): void
-    {
-        parent::isWin();
-    }
-
-    private function question(): void
-    {
-        parent::isWin();
-        $this->progressionStep = $this->progressionStep + rand(self::START, self::END);
-        $array = $this->randArray();
-
-        line("Question: %s %s", implode(' ', $array));
-        $answer = prompt('Your answer:');
-        if ($this->value == $answer) {
-            $this->amountAnswer++;
-            line('Correct!');
-            $this->question();
-        } else {
-            parent::wrongAnswer($this->value, $answer);
-        }
-    }
-
-    private function randArray(): array
-    {
-        $array = [];
-        $val = 0;
-        for ($i = self::START; $i <= self::END; $i++) {
-            $val += $this->progressionStep;
-            $array[$i] = $val;
+        for ($i = MIN_VALUE; $i < $progressionLength; $i++) {
+            if ($i == MIN_VALUE) {
+                $numbers[$i] = $start;
+            } else {
+                $numbers[$i] = $start + $i * $progressionStep;
+            }
+            if ($i == $hiddenIndex) {
+                $numbers[$i] = '..';
+                $answer = $start + $i * $progressionStep;
+            }
         }
 
-        $replacement = rand(self::START, self::END);
-        $this->value = $array[$replacement];
-        $array[$replacement] = '..';
+        $question = implode(' ', $numbers);
+        return [
+            'question' => $question,
+            'answer' => (string) $answer
+        ];
+    };
 
-        return $array;
-    }
+    start(DESC, $round);
 }

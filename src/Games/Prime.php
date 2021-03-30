@@ -25,18 +25,18 @@ function startGame(): void
     start(DESC, $round);
 }
 
-function isPrime(int $number): bool
+function isPrime(int $num): bool
 {
-    if ($number == 2) {
+    if ($num == 2) {
         return true;
     }
-    if ($number % 2 == 0) {
+    if ($num % 2 == 0 || $num == 1) {
         return false;
     }
     $i = 3;
-    $max_factor = (int)sqrt($number);
+    $max_factor = (int)sqrt($num);
     while ($i <= $max_factor) {
-        if ($number % $i == 0) {
+        if ($num % $i == 0) {
             return false;
         }
         $i += 2;

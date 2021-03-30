@@ -25,7 +25,7 @@ function start(string $description, callable $generateRound): void
             line('Correct!');
         } else {
             line("'%s!' is wrong answer ;(. Correct answer was '%s'.", $yourAnswer, $answer);
-            line("Let's try again, $name");
+            line("Let's try again, %s!", $name);
             return;
         }
     }

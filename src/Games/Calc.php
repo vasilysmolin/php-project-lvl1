@@ -37,23 +37,23 @@ function calculate(int $numberOne, int $numberTwo): array
     switch ($operator) {
         case "+":
             return
-                [
-                    'num' => $numberOne + $numberTwo,
-                    'operator' => $operator,
-                ];
-            case "-":
+                    [
+                        'num' => $numberOne + $numberTwo,
+                        'operator' => $operator,
+                    ];
+        case "-":
             return
-                [
-                    'num' => $numberOne - $numberTwo,
-                    'operator' => $operator,
-                ];
-            case "*":
+                    [
+                        'num' => $numberOne - $numberTwo,
+                        'operator' => $operator,
+                    ];
+        case "*":
             return
-                [
-                    'num' => $numberOne * $numberTwo,
-                    'operator' => $operator,
-                ];
-            default:
+                    [
+                        'num' => $numberOne * $numberTwo,
+                        'operator' => $operator,
+                    ];
+        default:
             throw new \Exception("Not found operator: $operator!");
     }
 }

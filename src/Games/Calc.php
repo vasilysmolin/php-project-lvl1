@@ -34,6 +34,7 @@ function startGame(): void
 function calculate(int $numberOne, int $numberTwo): array
 {
     $operator = OPERATORS[array_rand(OPERATORS)];
+    
     switch ($operator) {
         case "+":
             return

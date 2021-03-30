@@ -19,7 +19,8 @@ function startGame(): void
         $progressionLength = MAX_VALUE;
         $minIndex = MIN_VALUE;
         $hiddenIndex = rand($minIndex, $progressionLength - 1);
-
+        $numbers = [];
+        $answer = null;
         for ($i = MIN_VALUE; $i < $progressionLength; $i++) {
             if ($i == MIN_VALUE) {
                 $numbers[$i] = $start + $i * $progressionStep;

@@ -16,31 +16,44 @@ function startGame(): void
 {
     $round = function (): array {
 
-        $operator = OPERATORS[array_rand(OPERATORS)];
         $numberOne = rand(MIN_VALUE, MAX_VALUE);
         $numberTwo = rand(MIN_VALUE, MAX_VALUE);
+        $answer = calculate($numberOne, $numberTwo);
+        $operator = $answer['operator'];
         $question = "$numberOne $operator $numberTwo";
-        $answer = calculate($operator, $numberOne, $numberTwo);
-
+        
         return [
             'question' => $question,
-            'answer' => (int) $answer
+            'answer' => $answer['num']
         ];
     };
 
     start(DESC, $round);
 }
 
-function calculate($operator, int $numberOne, int $numberTwo): int
+function calculate(int $numberOne, int $numberTwo): array
 {
+    $operator = OPERATORS[array_rand(OPERATORS)];
     switch ($operator) {
-        case "+":
-            return $numberOne + $numberTwo;
-        case "-":
-            return $numberOne - $numberTwo;
-        case "*":
-            return $numberOne * $numberTwo;
-        default:
-            throw new \Exception("Not found operator: $operator!");
+    case "+":
+        return 
+            [
+                'num' => $numberOne + $numberTwo,
+                'operator' => $operator,
+            ];
+    case "-":
+        return 
+            [
+                'num' => $numberOne - $numberTwo,
+                'operator' => $operator,
+            ];
+    case "*":
+        return 
+            [
+                'num' => $numberOne * $numberTwo,
+                'operator' => $operator,
+            ];
+    default:
+        throw new \Exception("Not found operator: $operator!");
     }
 }

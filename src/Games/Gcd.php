@@ -16,8 +16,6 @@ function startGame(): void
     $round = function (): array {
         $randomNumberOne = rand(MIN_VALUE, MAX_VALUE);
         $randomNumberTwo = rand(MIN_VALUE, MAX_VALUE);
-        var_dump($randomNumberOne);
-        var_dump($randomNumberTwo);
         $question = "$randomNumberOne $randomNumberTwo";
         $answer = gcd($randomNumberOne, $randomNumberTwo);
         return [

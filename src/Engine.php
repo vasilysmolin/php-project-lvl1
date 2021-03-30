@@ -6,8 +6,8 @@ use function cli\line;
 use function cli\prompt;
 
 const ROUND_TO_WIN = 3;
-const MIN_VALUE = 0;
-const MAX_VALUE = 9;
+const MIN_VALUE = 1;
+const MAX_VALUE = 10;
 
 function start(string $description, callable $generateRound): void
 {

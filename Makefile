@@ -26,5 +26,7 @@ validate:
 	composer validate
 
 lint:
-	vendor/bin/phpcbf -- src bin
 	composer run-script phpcs -- --standard=PSR12 src bin
+
+phpcbf:
+	vendor/bin/phpcbf -- src bin

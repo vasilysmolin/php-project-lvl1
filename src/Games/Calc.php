@@ -19,7 +19,7 @@ function startGame(): void
         $operator = OPERATORS[array_rand(OPERATORS)];
         $numberOne = rand(MIN_VALUE, MAX_VALUE);
         $numberTwo = rand(MIN_VALUE, MAX_VALUE);
-        $question = "{$numberOne} {$operator} {$numberTwo}";
+        $question = "$numberOne $operator $numberTwo";
         $answer = calculate($operator, $numberOne, $numberTwo);
 
         return [

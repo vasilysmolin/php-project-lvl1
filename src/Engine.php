@@ -18,7 +18,7 @@ function start(string $description, callable $generateRound): void
 
     for ($roundGame = 1; $roundGame <= ROUND_TO_WIN; $roundGame++) {
         ['question' => $question, 'answer' => $answer] = $generateRound();
-        line("Question: $question");
+        line("Question: %s", $question);
         $yourAnswer = prompt('Your answer');
 
         if ($yourAnswer == $answer) {

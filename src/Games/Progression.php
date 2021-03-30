@@ -22,7 +22,7 @@ function startGame(): void
 
         for ($i = MIN_VALUE; $i < $progressionLength; $i++) {
             if ($i == MIN_VALUE) {
-                $numbers[$i] = $start;
+                $numbers[$i] = $start + $i * $progressionStep;
             } else {
                 $numbers[$i] = $start + $i * $progressionStep;
             }

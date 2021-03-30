@@ -1,41 +1,35 @@
 <?php
 
-namespace Brain;
-
-use Brain\Contract\GameInterface;
+namespace Brain\Engine;
 
 use function cli\line;
 use function cli\prompt;
 
-class Engine implements GameInterface
+
+const ROUND_TO_WIN = 3;
+const MIN_VALUE = 0;
+const MAX_VALUE = 9;
+
+function start(string $description, callable $generateRound): void
 {
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line($description);
 
-    protected const WIN = 3;
-    protected const MIN_VALUE = 0;
-    protected const MAX_VALUE = 9;
-    protected $amountAnswer = 0;
-    protected $userName;
+    for ($roundGame = 1; $roundGame <= ROUND_TO_WIN; $roundGame++) {
+        ['question' => $question, 'correctAnswer' => $correctAnswer] = $generateRound();
+        line("Question: $question");
+        $answer = prompt('Your answer');
 
-    public function start(): void
-    {
-
-        line('Welcome to the Brain Games! ');
-        $this->userName = prompt('May I have your name?');
-        line("Hello, %s!", $this->userName);
-    }
-
-    public function wrongAnswer($value, $answer): void
-    {
-        line("%s is wrong answer ;(. Correct answer was %s .", $answer, $value);
-        line("Let's try again, %s!", $this->userName);
-        $this->amountAnswer = 0;
-    }
-
-    public function isWin(): void
-    {
-        if ($this->amountAnswer >= self::WIN) {
-            line('Congratulations, %s!', $this->userName);
-            exit();
+        if ($answer === $correctAnswer) {
+            line('Correct!');
+        } else {
+            line("'%s!' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answer);
+            line("Let's try again, $name");
+            return;
         }
     }
+
+    line("Congratulations, $name!");
 }

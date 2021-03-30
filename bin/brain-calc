@@ -1,9 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\Calc;
+use function Brain\Games\Calc\startGame;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$game = new Calc();
-$game->start();
+startGame();

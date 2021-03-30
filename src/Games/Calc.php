@@ -1,75 +1,47 @@
 <?php
 
-namespace Brain\Games;
+//declare(strict_types=1);
 
-use Brain\Engine;
+namespace Brain\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
+use function Brain\Engine\start;
 
-class Calc extends Engine
+const DESC = 'What is the result of the expression?';
+
+function startGame(): void
 {
-    private $value;
+    $generateRound = function (): array {
 
-    public function start(): void
-    {
-        parent::start();
-        line('What is the result of the expression?');
-        $this->question();
-    }
+        $operators = array('+', '-', '*');
+        $operator = $operators[array_rand($operators)];
+        $minNumber = 1;
+        $maxNumber = 100;
+        $numberOne = rand($minNumber, $maxNumber);
+        $numberTwo = rand($minNumber, $maxNumber);
+        $question = "{$numberOne} {$operator} {$numberTwo}";
+        $answer = calculate($operator, $numberOne, $numberTwo);
 
-    public function wrongAnswer($value, $answer): void
-    {
-        parent::wrongAnswer();
-    }
+        return [
+            'question' => $question,
+            'answer' => (int) $answer
+        ];
+    };
 
-    public function isWin(): void
-    {
-        parent::isWin();
-    }
+    start(DESC, $generateRound);
+}
 
-    private function question(): void
-    {
-        parent::isWin();
 
-        $numberFirst = $this->rand();
-        $numberSecond = $this->rand();
-        $string = $this->stringExample($numberFirst, $numberSecond);
-
-        line("Question: %s", $string);
-        $answer = prompt('Your answer:');
-        if ($this->value == $answer) {
-            $this->amountAnswer++;
-            line('Correct!');
-            $this->question();
-        } else {
-            parent::wrongAnswer($this->value, $answer);
-        }
-    }
-
-    private function rand(): int
-    {
-        return rand(self::MIN_VALUE, self::MAX_VALUE);
-    }
-
-    private function stringExample(int $numberFirst, int $numberSecond): string
-    {
-        $array = array("+","-","*");
-        $operator = $array[array_rand($array, 1)];
-
-        switch ($operator) {
-            case "+":
-                $this->value = $numberFirst + $numberSecond;
-                break;
-            case "-":
-                $this->value = $numberFirst - $numberSecond;
-                break;
-            case "*":
-                $this->value = $numberFirst * $numberSecond;
-                break;
-            default:
-                return false;
-        }
-        return "$numberFirst $operator $numberSecond";
+function calculate($operator, $numberOne, $numberTwo): int
+{
+    switch ($operator) {
+        case "+":
+            return $numberOne + $numberTwo;
+        case "-":
+            return $numberOne - $numberTwo;
+        case "*":
+            return $numberOne * $numberTwo;
+        default:
+            throw new \Exception("Unknown operator value: $operator!");
     }
 }
+

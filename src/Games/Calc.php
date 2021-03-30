@@ -21,7 +21,7 @@ function startGame(): void
         $answer = calculate($numberOne, $numberTwo);
         $operator = $answer['operator'];
         $question = "$numberOne $operator $numberTwo";
-        
+
         return [
             'question' => $question,
             'answer' => $answer['num']
@@ -35,25 +35,25 @@ function calculate(int $numberOne, int $numberTwo): array
 {
     $operator = OPERATORS[array_rand(OPERATORS)];
     switch ($operator) {
-    case "+":
-        return 
-            [
-                'num' => $numberOne + $numberTwo,
-                'operator' => $operator,
-            ];
-    case "-":
-        return 
-            [
-                'num' => $numberOne - $numberTwo,
-                'operator' => $operator,
-            ];
-    case "*":
-        return 
-            [
-                'num' => $numberOne * $numberTwo,
-                'operator' => $operator,
-            ];
-    default:
-        throw new \Exception("Not found operator: $operator!");
+        case "+":
+            return
+                [
+                    'num' => $numberOne + $numberTwo,
+                    'operator' => $operator,
+                ];
+        case "-":
+            return
+                [
+                    'num' => $numberOne - $numberTwo,
+                    'operator' => $operator,
+                ];
+        case "*":
+            return
+                [
+                    'num' => $numberOne * $numberTwo,
+                    'operator' => $operator,
+                ];
+        default:
+            throw new \Exception("Not found operator: $operator!");
     }
 }

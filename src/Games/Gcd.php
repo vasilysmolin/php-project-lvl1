@@ -18,7 +18,7 @@ function startGame(): void
         $randomNumberTwo = rand(MIN_VALUE, MAX_VALUE);
         var_dump($randomNumberOne);
         var_dump($randomNumberTwo);
-        $question = "{$randomNumberOne} {$randomNumberTwo}";
+        $question = "$randomNumberOne $randomNumberTwo";
         $answer = gcd($randomNumberOne, $randomNumberTwo);
         return [
             'question' => $question,

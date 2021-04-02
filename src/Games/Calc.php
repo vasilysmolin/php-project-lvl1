@@ -9,38 +9,39 @@ use function Brain\Engine\start;
 use const Brain\Engine\MIN_VALUE;
 use const Brain\Engine\MAX_VALUE;
 
-const DESC = 'What is the result of the expression?';
+const DESCRIPTION = 'What is the result of the expression?';
 const OPERATORS = ['+', '-', '*'];
 
 function startGame(): void
 {
-    $round = function (): array {
-
-        $numberOne = rand(MIN_VALUE, MAX_VALUE);
-        $numberTwo = rand(MIN_VALUE, MAX_VALUE);
-        $answer = calculate($numberOne, $numberTwo);
-        $operator = $answer['operator'];
-        $question = "$numberOne $operator $numberTwo";
-
-        return [
-            'question' => $question,
-            'answer' => $answer['num']
-        ];
-    };
-
-    start(DESC, $round);
+    $round = generateRound();
+    start(DESCRIPTION, $round);
 }
 
-function calculate(int $numberOne, int $numberTwo): array
+function generateRound(): array
 {
+    $numberOne = rand(MIN_VALUE, MAX_VALUE);
+    $numberTwo = rand(MIN_VALUE, MAX_VALUE);
     $operator = OPERATORS[array_rand(OPERATORS)];
+    $answer = calculate($numberOne, $numberTwo, $operator);
+    $question = "$numberOne $operator $numberTwo";
+
+    return [
+        'question' => $question,
+        'answer' => $answer
+    ];
+}
+
+function calculate(int $numberOne, int $numberTwo, $operator): int
+{
+
     switch ($operator) {
         case "+":
-            return ['num' => $numberOne + $numberTwo, 'operator' => $operator];
+            return $numberOne + $numberTwo;
         case "-":
-            return ['num' => $numberOne - $numberTwo, 'operator' => $operator];
+            return $numberOne - $numberTwo;
         case "*":
-            return ['num' => $numberOne * $numberTwo, 'operator' => $operator];
+            return $numberOne * $numberTwo;
         default:
             throw new \Exception("Not found operator: $operator!");
     }

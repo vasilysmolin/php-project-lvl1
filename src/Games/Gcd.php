@@ -9,22 +9,22 @@ use function Brain\Engine\start;
 use const Brain\Engine\MIN_VALUE;
 use const Brain\Engine\MAX_VALUE;
 
-const DESC = 'Find the greatest common divisor of given numbers.';
+const DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 
 function startGame(): void
 {
     $round = function (): array {
-        $randomNumberOne = rand(MIN_VALUE, MAX_VALUE);
-        $randomNumberTwo = rand(MIN_VALUE, MAX_VALUE);
-        $question = "$randomNumberOne $randomNumberTwo";
-        $answer = gcd($randomNumberOne, $randomNumberTwo);
+        $numberOne = rand(MIN_VALUE, MAX_VALUE);
+        $numberTwo = rand(MIN_VALUE, MAX_VALUE);
+        $question = "$numberOne $numberTwo";
+        $answer = gcd($numberOne, $numberTwo);
         return [
             'question' => $question,
             'answer' => $answer
         ];
     };
 
-    start(DESC, $round);
+    start(DESCRIPTION, $round);
 }
 
 function gcd(int $n, int $m): int

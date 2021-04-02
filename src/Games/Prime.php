@@ -9,7 +9,7 @@ use function Brain\Engine\start;
 use const Brain\Engine\MIN_VALUE;
 use const Brain\Engine\MAX_VALUE;
 
-const DESC = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function startGame(): void
 {
@@ -22,7 +22,7 @@ function startGame(): void
         ];
     };
 
-    start(DESC, $round);
+    start(DESCRIPTION, $round);
 }
 
 function isPrime(int $num): bool

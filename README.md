@@ -4,17 +4,26 @@
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 
 
-#brain-even
+#Installation
+
+1. Install project composer create-project vasilysmolin/hexlet_php_project_lvl1
+
+2. Play any of the five games. Rules: Answer 3 questions correctly in a row or start the game over
+
+
+##Games
+
+###brain-even - answer even number or not
 https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd
 
-#brain-calc
+###brain-calc - calculate the correct answer
 https://asciinema.org/a/XbW2X9KG7kksW2POM5nR8ObIj
 
-#brain-gcd
+###brain-gcd - find the greatest divisor of two numbers
 https://asciinema.org/a/gfArkBK62WZdocH7iRs0YhjLi
 
-#brain-progression
+###brain-progression - enter the missing number of the arithmetic progression
 https://asciinema.org/a/rMgNgvrAe0PfnYOv2yd1R4L5k
 
-#brain-prime
+###brain-prime - answer if the given number is prime
 https://asciinema.org/a/gWPJgs7lSAhC7c6PLa3PuwS4F

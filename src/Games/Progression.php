@@ -9,7 +9,7 @@ use function Brain\Engine\start;
 use const Brain\Engine\MIN_VALUE;
 use const Brain\Engine\MAX_VALUE;
 
-const DESC = 'What number is missing in the progression?';
+const DESCRIPTION = 'What number is missing in the progression?';
 
 function startGame(): void
 {
@@ -40,5 +40,5 @@ function startGame(): void
         ];
     };
 
-    start(DESC, $round);
+    start(DESCRIPTION, $round);
 }

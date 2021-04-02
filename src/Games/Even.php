@@ -9,7 +9,7 @@ use function Brain\Engine\start;
 use const Brain\Engine\MIN_VALUE;
 use const Brain\Engine\MAX_VALUE;
 
-const DESC = 'Answer "yes" if the number is even, otherwise answer "no".';
+const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function startGame(): void
 {
@@ -22,7 +22,7 @@ function startGame(): void
         ];
     };
 
-    start(DESC, $round);
+    start(DESCRIPTION, $round);
 }
 
 function isEven(int $number): bool

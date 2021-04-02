@@ -14,22 +14,20 @@ const OPERATORS = ['+', '-', '*'];
 
 function startGame(): void
 {
-    $round = generateRound();
+    $round = function (): array {
+        $numberOne = rand(MIN_VALUE, MAX_VALUE);
+        $numberTwo = rand(MIN_VALUE, MAX_VALUE);
+        $operator = OPERATORS[array_rand(OPERATORS)];
+        $answer = calculate($numberOne, $numberTwo, $operator);
+        $question = "$numberOne $operator $numberTwo";
+
+        return [
+            'question' => $question,
+            'answer' => $answer
+        ];
+    };
+
     start(DESCRIPTION, $round);
-}
-
-function generateRound(): array
-{
-    $numberOne = rand(MIN_VALUE, MAX_VALUE);
-    $numberTwo = rand(MIN_VALUE, MAX_VALUE);
-    $operator = OPERATORS[array_rand(OPERATORS)];
-    $answer = calculate($numberOne, $numberTwo, $operator);
-    $question = "$numberOne $operator $numberTwo";
-
-    return [
-        'question' => $question,
-        'answer' => $answer
-    ];
 }
 
 function calculate(int $numberOne, int $numberTwo, $operator): int

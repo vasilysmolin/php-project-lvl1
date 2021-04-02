@@ -14,7 +14,7 @@
 ##Games
 
 ###brain-even - answer even number or not
-https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd
+[![asciicast](https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd.svg)](https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd)
 
 ###brain-calc - calculate the correct answer
 https://asciinema.org/a/XbW2X9KG7kksW2POM5nR8ObIj

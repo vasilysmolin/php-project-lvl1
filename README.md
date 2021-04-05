@@ -8,9 +8,27 @@
 
 # Installation
 
-1. Install project composer create-project vasilysmolin/hexlet_php_project_lvl1
+1. Install project 
+
+	composer create-project vasilysmolin/hexlet_php_project_lvl1
+
 
 2. Play any of the five games. Rules: Answer 3 questions correctly in a row or start the game over
+
+	cd /hexlet_php_project_lvl1
+
+	make brain-['name_game']
+	
+
+## Example:
+
+	make brain-even
+
+	make brain-calc
+
+	make brain-prime
+
+	make brain-gcd
 
 
 ## Games

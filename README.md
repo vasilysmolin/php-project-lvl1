@@ -18,9 +18,10 @@
 ###brain-even - answer even number or not
 
 #### win game
-[![asciicast](https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd.svg)](https://asciinema.org/a/5ifhtG3dM7f8KLr1xNXWvzUCd)
+[![asciicast](https://asciinema.org/a/4sVea6wkUGpFeIe4yUAiPn2gs.svg)](https://asciinema.org/a/4sVea6wkUGpFeIe4yUAiPn2gs)
 
 #### fail game
+[![asciicast](https://asciinema.org/a/PcgVs9CWFhAcdbPpe0WBb3blc.svg)](https://asciinema.org/a/PcgVs9CWFhAcdbPpe0WBb3blc)
 
 
 ###brain-calc - calculate the correct answer

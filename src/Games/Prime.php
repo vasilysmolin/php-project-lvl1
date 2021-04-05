@@ -13,7 +13,7 @@ const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no
 
 function startGame(): void
 {
-    $round = function (): array {
+    $generateRound = function (): array {
         $question = rand(MIN_VALUE, MAX_VALUE);
         $answer = isPrime($question) ? 'yes' : 'no';
         return [
@@ -22,7 +22,7 @@ function startGame(): void
         ];
     };
 
-    start(DESCRIPTION, $round);
+    start(DESCRIPTION, $generateRound);
 }
 
 function isPrime(int $num): bool

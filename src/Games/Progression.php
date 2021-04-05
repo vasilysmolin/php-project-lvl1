@@ -13,7 +13,7 @@ const DESCRIPTION = 'What number is missing in the progression?';
 
 function startGame(): void
 {
-    $round = function (): array {
+    $generateRound = function (): array {
         $start = rand(MIN_VALUE, MAX_VALUE);
         $progressionStep = rand(MIN_VALUE, MAX_VALUE);
         $progressionLength = MAX_VALUE;
@@ -40,5 +40,5 @@ function startGame(): void
         ];
     };
 
-    start(DESCRIPTION, $round);
+    start(DESCRIPTION, $generateRound);
 }

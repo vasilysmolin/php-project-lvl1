@@ -13,7 +13,7 @@ const DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 function startGame(): void
 {
-    $round = function (): array {
+    $generateRound = function (): array {
         $question = rand(MIN_VALUE, MAX_VALUE);
         $answer = isEven($question) ? 'yes' : 'no';
         return [
@@ -22,7 +22,7 @@ function startGame(): void
         ];
     };
 
-    start(DESCRIPTION, $round);
+    start(DESCRIPTION, $generateRound);
 }
 
 function isEven(int $number): bool

@@ -14,7 +14,7 @@ const OPERATORS = ['+', '-', '*'];
 
 function startGame(): void
 {
-    $generateRound= function (): array {
+    $generateRound = function (): array {
         $numberOne = rand(MIN_VALUE, MAX_VALUE);
         $numberTwo = rand(MIN_VALUE, MAX_VALUE);
         $operator = OPERATORS[array_rand(OPERATORS)];

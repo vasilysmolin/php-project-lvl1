@@ -10,7 +10,7 @@
 
 1. Install project 
 
-	composer global create-project vasilysmolin/hexlet_php_project_lvl1
+	composer global require vasilysmolin/hexlet_php_project_lvl1
 
 
 2. Play any of the five games. Rules: Answer 3 questions correctly in a row or start the game over. Example:

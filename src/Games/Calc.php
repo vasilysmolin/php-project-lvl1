@@ -30,7 +30,7 @@ function startGame(): void
     start(DESCRIPTION, $round);
 }
 
-function calculate(int $numberOne, int $numberTwo, $operator): int
+function calculate(int $numberOne, int $numberTwo, string $operator): int
 {
 
     switch ($operator) {

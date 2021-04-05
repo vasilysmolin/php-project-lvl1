@@ -18,7 +18,7 @@
 	cd /hexlet_php_project_lvl1
 
 	make brain-['name_game']
-	
+
 
 ## Example:
 
@@ -42,7 +42,7 @@
 [![asciicast](https://asciinema.org/a/PcgVs9CWFhAcdbPpe0WBb3blc.svg)](https://asciinema.org/a/PcgVs9CWFhAcdbPpe0WBb3blc)
 
 
-###brain-calc - calculate the correct answer
+### brain-calc - calculate the correct answer
 
 #### win game
 [![asciicast](https://asciinema.org/a/nIo2xfqKR3iMddFRkUQ9bST1E.svg)](https://asciinema.org/a/nIo2xfqKR3iMddFRkUQ9bST1E)
@@ -51,7 +51,7 @@
 [![asciicast](https://asciinema.org/a/AFmOUk614XMTeKrcTxtcVheZn.svg)](https://asciinema.org/a/AFmOUk614XMTeKrcTxtcVheZn)
 
 
-###brain-gcd - find the greatest divisor of two numbers
+### brain-gcd - find the greatest divisor of two numbers
 
 #### win game
 [![asciicast](https://asciinema.org/a/GM2BVyTwEjB9LezCwMIh0qUOK.svg)](https://asciinema.org/a/GM2BVyTwEjB9LezCwMIh0qUOK)
@@ -60,7 +60,7 @@
 [![asciicast](https://asciinema.org/a/SxOoSC1I6QEhajecr20RwXNLd.svg)](https://asciinema.org/a/SxOoSC1I6QEhajecr20RwXNLd)
 
 
-###brain-progression - enter the missing number of the arithmetic progression
+### brain-progression - enter the missing number of the arithmetic progression
 
 #### win game
 [![asciicast](https://asciinema.org/a/S0GCTEmtHcrFFrexDF0xzVixs.svg)](https://asciinema.org/a/S0GCTEmtHcrFFrexDF0xzVixs)
@@ -69,7 +69,7 @@
 [![asciicast](https://asciinema.org/a/EDJB7hXgEhOyQO5rySb8Hsjdh.svg)](https://asciinema.org/a/EDJB7hXgEhOyQO5rySb8Hsjdh)
 
 
-###brain-prime - answer if the given number is prime
+### brain-prime - answer if the given number is prime
 
 #### win game
 [![asciicast](https://asciinema.org/a/M0pHOVfKq7jSb8vog35U8qEN1.svg)](https://asciinema.org/a/M0pHOVfKq7jSb8vog35U8qEN1)

@@ -9,12 +9,12 @@ const ROUNDS_COUNT = 3;
 const MIN_VALUE = 1;
 const MAX_VALUE = 10;
 
-function start(string $DESCRIPTIONription, callable $generateRound): void
+function start(string $DESCRIPTION, callable $generateRound): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line($DESCRIPTIONription);
+    line($DESCRIPTION);
 
     for ($roundNumber = 1; $roundNumber <= ROUNDS_COUNT; $roundNumber++) {
         ['question' => $question, 'answer' => $answer] = $generateRound();
